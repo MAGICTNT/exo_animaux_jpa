@@ -12,19 +12,8 @@
 <%
     Chien chien = (Chien) request.getAttribute("chien");
     String titre = (String) request.getAttribute("titre");
+    Integer age = (Integer) request.getAttribute("age");
 
-    int ageEnAnnees = -1;  // Initialiser avec une valeur par défaut
-    if (chien != null && chien.getDateNaissance() != null) {
-        // Convertir la date de naissance en LocalDate
-        LocalDate dateNaissance = LocalDate.parse(chien.getDateNaissance().toString());
-
-        // Récupérer la date actuelle
-        LocalDate dateActuelle = LocalDate.now();
-
-        // Calculer l'âge en années
-        Period age = Period.between(dateNaissance, dateActuelle);
-        ageEnAnnees = age.getYears();
-    }
 %>
 <%--<jsp:useBean id="titre" type="java.lang.String" scope="request"/>--%>
 <%--<jsp:useBean id="chien" type="entity.Chien" scope="request"/>--%>
@@ -41,7 +30,7 @@
 
 <% if (chien != null) { %>
 <p>Le nom du loulou est: <%= chien.getNomChien() %></p>
-<p>Il est né le: <%= chien.getDateNaissance() %> (<%= ageEnAnnees %> ans)</p>
+<p>Il est né le: <%= chien.getDateNaissance() %> (<%= age %> ans)</p>
 <p>Et c'est un: <%= chien.getRace() %></p>
 <% } else { %>
 <p>besoin d'un loulou, aller sur ajouter <button><a href="${pageContext.request.contextPath}/affichage">ajouter</a> </button></p>

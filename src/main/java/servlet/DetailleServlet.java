@@ -11,6 +11,8 @@ import org.hibernate.annotations.Parameter;
 import repository.ChienRepository;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 @WebServlet("/detaille")
@@ -18,8 +20,10 @@ public class DetailleServlet extends HttpServlet {
     private ChienRepository chienRepository;
     private String titre;
     private Chien chien;
+    private int age;
 
     public void init(){
+        age = 0;
         chien = new Chien();
         chienRepository = new ChienRepository();
         titre = "🐶 Détails du chien 🐶";
@@ -39,6 +43,8 @@ public class DetailleServlet extends HttpServlet {
 
             // Si le chien est trouvé, le passer à la JSP
             if (chienTrouve != null) {
+                LocalDate currentDate = LocalDate.now();
+                age = Period.between(chienTrouve.getDateNaissance(), currentDate).getYears();
                 req.setAttribute("chien", chienTrouve);
             }
         }else {
@@ -46,6 +52,8 @@ public class DetailleServlet extends HttpServlet {
 
         }
         req.setAttribute("titre", titre);
+        req.setAttribute("age", age);
+
         getServletContext().getRequestDispatcher("/WEB-INF/detaille.jsp").forward(req, resp);
     }
 
