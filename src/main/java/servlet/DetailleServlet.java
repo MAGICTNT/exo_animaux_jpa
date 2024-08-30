@@ -40,7 +40,6 @@ public class DetailleServlet extends HttpServlet {
             // Rechercher le chien correspondant dans la liste (ou base de données)
             Chien chienTrouve = chienRepository.findById(idChien);
 
-
             // Si le chien est trouvé, le passer à la JSP
             if (chienTrouve != null) {
                 LocalDate currentDate = LocalDate.now();
@@ -48,7 +47,7 @@ public class DetailleServlet extends HttpServlet {
                 req.setAttribute("chien", chienTrouve);
             }
         }else {
-            req.setAttribute("chien", chien);
+            req.setAttribute("chien", null);
 
         }
         req.setAttribute("titre", titre);

@@ -12,11 +12,11 @@
     <title><%= titre %> </title>
 </head>
 <body>
-<a href="affichage">affichage</a>
-<a href="detaille">detaille</a>
-<a href="ajouter">ajouter</a>
+<jsp:include page="component/nav.jsp"/>
+
+
 <form action="affichage" method="post">
-    <label for="nom">Nom du chat</label>
+    <label for="nom">Nom du chien</label>
     <input type="text" id="nom" name="nom">
     <label for="race">Race</label>
     <input type="text" id="race" name="race">

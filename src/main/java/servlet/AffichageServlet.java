@@ -39,7 +39,8 @@ public class AffichageServlet extends HttpServlet {
                 .dateNaissance(LocalDate.parse(req.getParameter("dateDeNaissance")))
                 .build();
         chienRepository.createOrUpdate(chien);
-        chiensList = chienRepository.findAll();
+//        chiensList = chienRepository.findAll();
+        chiensList.add(chien);
         doGet(req, resp);
     }
 

@@ -19,17 +19,7 @@
     <title><%= titre %> </title>
 </head>
 <body>
-<div>
-    <button>
-        <a href="${pageContext.request.contextPath}/affichage">affichage</a>
-    </button>
-    <button>
-        <a href="${pageContext.request.contextPath}/detaille">detaille</a>
-    </button>
-    <button>
-        <a href="${pageContext.request.contextPath}/ajouter">ajouter</a>
-    </button>
-</div>
+<jsp:include page="component/nav.jsp"/>
 <br/>
 
 <% if (chiens == null || chiens.size() <= 0) { %>

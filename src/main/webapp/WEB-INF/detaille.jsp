@@ -24,9 +24,8 @@
     <title><%=titre%> </title>
 </head>
 <body>
-<a href="affichage">affichage</a>
-<a href="detaille">detaille</a>
-<a href="ajouter">ajouter</a>
+<jsp:include page="component/nav.jsp"/>
+
 
 <% if (chien != null) { %>
 <p>Le nom du loulou est: <%= chien.getNomChien() %></p>
