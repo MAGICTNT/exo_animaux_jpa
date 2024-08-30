@@ -19,37 +19,40 @@
     <title><%= titre %> </title>
 </head>
 <body>
-<jsp:include page="component/nav.jsp"/>
-<br/>
+<main>
+    <jsp:include page="component/nav.jsp"/>
+    <br/>
 
-<% if (chiens == null || chiens.size() <= 0) { %>
-<p>Aucun chien trouvé</p>
-<% } else { %>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Race</th>
-        <th>Date de Naissance</th>
-        <th>plus d'information</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% for (Chien chien : chiens) { %>
-    <tr>
-        <td><%= chien.getIdChien() %></td>
-        <td><%= chien.getNomChien() %></td>
-        <td><%= chien.getRace() %></td>
-        <td><%= chien.getDateNaissance().toString() %></td>
-        <td>
-            <a href="${pageContext.request.contextPath}/detaille?idChien=<%= chien.getIdChien() %>">plus d'info</a>
-        </td>
-    </tr>
+    <% if (chiens == null || chiens.size() <= 0) { %>
+    <p>Aucun chien trouvé</p>
+    <% } else { %>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Race</th>
+            <th>Date de Naissance</th>
+            <th>plus d'information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (Chien chien : chiens) { %>
+        <tr>
+            <td><%= chien.getIdChien() %></td>
+            <td><%= chien.getNomChien() %></td>
+            <td><%= chien.getRace() %></td>
+            <td><%= chien.getDateNaissance().toString() %></td>
+            <td>
+                <a href="${pageContext.request.contextPath}/detaille?idChien=<%= chien.getIdChien() %>">plus d'info</a>
+            </td>
+        </tr>
+        <% } %>
+        </tbody>
+    </table>
     <% } %>
-    </tbody>
-</table>
-<% } %>
+</main>
+
 
 </body>
 </html>

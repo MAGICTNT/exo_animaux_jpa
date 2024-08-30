@@ -12,18 +12,20 @@
     <title><%= titre %> </title>
 </head>
 <body>
-<jsp:include page="component/nav.jsp"/>
+<main>
+    <jsp:include page="component/nav.jsp"/>
 
 
-<form action="affichage" method="post">
-    <label for="nom">Nom du chien</label>
-    <input type="text" id="nom" name="nom">
-    <label for="race">Race</label>
-    <input type="text" id="race" name="race">
-    <label for="dateDeNaissance">date de naissance </label>
-    <input type="date" id="dateDeNaissance" name="dateDeNaissance">
-    <button>send</button>
+    <form action="affichage" method="post">
+        <label for="nom">Nom du chien</label>
+        <input type="text" id="nom" name="nom">
+        <label for="race">Race</label>
+        <input type="text" id="race" name="race">
+        <label for="dateDeNaissance">date de naissance </label>
+        <input type="date" id="dateDeNaissance" name="dateDeNaissance">
+        <button>send</button>
 
-</form>
+    </form>
+</main>
 </body>
 </html>

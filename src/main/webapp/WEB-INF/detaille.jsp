@@ -24,16 +24,18 @@
     <title><%=titre%> </title>
 </head>
 <body>
-<jsp:include page="component/nav.jsp"/>
+<main>
+    <jsp:include page="component/nav.jsp"/>
 
 
-<% if (chien != null) { %>
-<p>Le nom du loulou est: <%= chien.getNomChien() %></p>
-<p>Il est né le: <%= chien.getDateNaissance() %> (<%= age %> ans)</p>
-<p>Et c'est un: <%= chien.getRace() %></p>
-<% } else { %>
-<p>besoin d'un loulou, aller sur ajouter <button><a href="${pageContext.request.contextPath}/affichage">ajouter</a> </button></p>
-<% } %>
+    <% if (chien != null) { %>
+    <p>Le nom du loulou est: <%= chien.getNomChien() %></p>
+    <p>Il est né le: <%= chien.getDateNaissance() %> (<%= age %> ans)</p>
+    <p>Et c'est un: <%= chien.getRace() %></p>
+    <% } else { %>
+    <p>besoin d'un loulou, aller sur ajouter <button><a href="${pageContext.request.contextPath}/affichage">ajouter</a> </button></p>
+    <% } %>
+</main>
 
 </body>
 </html>
