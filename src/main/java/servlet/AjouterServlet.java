@@ -1,5 +1,6 @@
 package servlet;
 
+import entity.Chien;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,6 +18,7 @@ public class AjouterServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("titre", titre);
+        req.setAttribute("chien", new Chien());
         getServletContext().getRequestDispatcher("/WEB-INF/ajouter.jsp").forward(req, resp);
     }
 
